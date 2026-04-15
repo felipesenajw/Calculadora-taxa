@@ -1,4 +1,4 @@
-const cacheName = 'calc-taxa-v3'; // Mudámos para v3
+const cacheName = 'calc-taxa-v5'; // Mudámos para v3
 const assets = ['./', './index.html', './manifest.json'];
 
 self.addEventListener('install', e => {
