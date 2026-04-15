@@ -156,7 +156,7 @@
         if(!campo) return;
         const num = parseFloat(campo.replace(/\./g, "").replace(",", "."));
         const vTaxa = num * (taxa/100);
-        const formatador = new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR' });
+        const formatador = new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'BRL' });
         document.getElementById('res-taxa').innerText = formatador.format(vTaxa);
         document.getElementById('res-total').innerText = formatador.format(num + vTaxa);
         document.getElementById('resultado').style.display = 'block';
