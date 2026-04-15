@@ -1,4 +1,4 @@
-const cacheName = 'calc-taxa-v1';
+const cacheName = 'calc-taxa-v2';
 const assets = ['./', './index.html'];
 
 // Instalação: Guarda os ficheiros no cache
