@@ -1,0 +1,15 @@
+{
+  "name": "Calculadora de Taxa Pro",
+  "short_name": "CalcTaxa",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a73e8",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2311/2311910.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
