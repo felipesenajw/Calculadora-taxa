@@ -142,13 +142,30 @@
 
     // --- LÓGICA DE CÁLCULO (A mesma de antes) ---
     function formatarMoeda(input) {
-        let valor = input.value.replace(/\D/g, ""); 
-        if (valor === "") { input.value = ""; return; }
-        valor = (valor / 100).toFixed(2) + "";
-        valor = valor.replace(".", ",");
-        valor = valor.replace(/(\d)(\?=(\d{3})+(?!\d))/g, "$1.");
-        input.value = valor;
+    // 1. Remove tudo o que não é número
+    let valor = input.value.replace(/\D/g, ""); 
+    
+    if (valor === "") { 
+        input.value = ""; 
+        return; 
     }
+
+    // 2. Transforma em número decimal (centavos)
+    // Ex: "1250" vira "12.50"
+    valor = (valor / 100).toFixed(2);
+
+    // 3. Divide a parte inteira da parte decimal
+    let partes = valor.split(".");
+    let inteiro = partes[0];
+    let decimal = partes[1];
+
+    // 4. Adiciona o ponto de milhar na parte inteira
+    // Esta fórmula procura grupos de 3 números e coloca um ponto
+    inteiro = inteiro.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+    // 5. Junta tudo com a vírgula brasileira
+    input.value = inteiro + "," + decimal;
+}
 
     function executarCalculo() {
         const campo = document.getElementById('valor').value;
