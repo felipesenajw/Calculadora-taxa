@@ -76,6 +76,24 @@
 
         button.btn-calc { width: 100%; padding: 15px; margin-top: 20px; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; background-color: #6a1b9a; color: white; }
 
+        .btn-limpar {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 2px solid #6a1b9a; /* Borda roxa */
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: transparent; /* Fundo transparente */
+    color: #6a1b9a; /* Texto roxo */
+    transition: 0.3s;
+}
+
+.btn-limpar:hover {
+    background-color: #f3e5f5; /* Fundo roxo muito claro ao passar o mouse */
+}
+
         .resultado { margin-top: 20px; padding: 15px; background-color: var(--bg-res); border-left: 5px solid #6a1b9a; border-radius: 4px; display: none; }
     </style>
 </head>
@@ -94,6 +112,7 @@
         <label>Taxa (%):</label>
         <input type="number" id="taxa" value="1.5" step="0.1">
         <button class="btn-calc" onclick="executarCalculo()">Calcular</button>
+        <button class="btn-limpar" onclick="limparCampos()">Zerar Valor</button>
         
         <div class="resultado" id="resultado">
             <p>Taxa: <strong id="res-taxa"></strong></p>
@@ -178,6 +197,17 @@
         document.getElementById('res-total').innerText = formatador.format(num + vTaxa);
         document.getElementById('resultado').style.display = 'block';
     }
+
+    function limparCampos() {
+    // 1. Limpa o campo de entrada
+    document.getElementById('valor').value = "";
+    
+    // 2. Esconde a div de resultado
+    document.getElementById('resultado').style.display = 'none';
+    
+    // 3. (Opcional) Coloca o foco de volta no campo para digitar novamente
+    document.getElementById('valor').focus();
+}
 
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('sw.js').then(() => console.log("Service Worker registrado!")).catch(err => console.log("Erro ao registrar:",err));
